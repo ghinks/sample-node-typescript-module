@@ -8,6 +8,7 @@
     "build": "babel src --out-dir dist --extensions \".ts\" --ignore \"src/**/*.spec.ts\"",
     "postbuild": "cp ./definitions/module.d.ts ./dist/index.d.ts",
     "test": "cross-env NODE_ENV=test nyc mocha -r \"src/register\" \"src/**/*.spec.ts\"",
+    "test:jest": "jest",
     "cover": "NODE_ENV=test nyc --reporter=html mocha -r src/register src/**/*.spec.ts ",
     "lint": "eslint \"src/**/*.ts\"",
     "pretty": "prettier --write src/**/*.ts"
@@ -34,6 +35,7 @@
     "chai": "^4.2.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.13.0",
+    "jest": "^24.1.0",
     "mocha": "^5.2.0",
     "nyc": "^13.3.0",
     "prettier": "^1.16.4",
@@ -90,14 +92,20 @@
     },
     "extends": [
       "plugin:@typescript-eslint/recommended"
-    ]
+    ],
+    "env": {
+      "node": true,
+      "jest": true,
+      "mocha": true
+    }
   },
   "nyc": {
     "extension": [
       ".ts"
     ],
     "exclude": [
-      "src/**/*.spec.ts"
+      "src/**/*.spec.ts",
+      "src/**/*.test.ts"
     ],
     "report": [
       "json",
@@ -105,5 +113,11 @@
       "html",
       "text"
     ]
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "testMatch": ["**/**/*.test.ts"],
+    "testEnvironment": "node"
   }
 }

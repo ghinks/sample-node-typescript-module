@@ -16,10 +16,17 @@ for publishing.
 
 ## Decisions made
 
-### mocha rather than jest
+### mocha rather than jest, you decide
 After having looked long and hard at jest I feel that the ability to do snapshots is not a good
 idea and leads to a lack of understanding about the test result. Jest is terrific but all the test
 frameworks do a good job.
+
+Ok, I'll add jest in there and why not. 
+
+| test framework | file extension |
+|----------------|----------------|
+| mocha          | *.spec.ts      |
+| jest           | *.test.ts      |
 
 ### Building with **@babel/preset-typescript** rather than tsc
 Well under the covers it is the same thing, but for testing the babel plugin [rewire](https://www.npmjs.com/package/babel-plugin-rewire) is 
