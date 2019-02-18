@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "babel src  --out-dir dist --extensions \".ts\" --ignore \"src/**/*.spec.ts\"",
+    "build": "babel src --out-dir dist --extensions \".ts\" --ignore \"src/**/*.spec.ts\"",
     "postbuild": "cp ./definitions/module.d.ts ./dist/index.d.ts",
     "test": "cross-env NODE_ENV=test nyc mocha -r \"src/register\" \"src/**/*.spec.ts\"",
     "cover": "NODE_ENV=test nyc --reporter=html mocha -r src/register src/**/*.spec.ts ",
