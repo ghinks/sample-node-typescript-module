@@ -1,0 +1,108 @@
+{
+  "name": "@gvhinks/sample-node-typescript-module",
+  "version": "1.0.0",
+  "description": "list tags for the given dependency",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "babel ./src  --out-dir dist --extensions \".ts\" --ignore \"src/**/*.spec.ts\"",
+    "postbuild": "cp ./definitions/module.d.ts ./dist/index.d.ts",
+    "test": "NODE_ENV=test nyc mocha -r src/register src/**/*.spec.ts",
+    "cover": "NODE_ENV=test nyc --reporter=html mocha -r src/register src/**/*.spec.ts ",
+    "lint": "eslint 'src/**/*.ts'",
+    "pretty": "prettier --write src/**/*.ts"
+  },
+  "keywords": [
+    "tags"
+  ],
+  "author": "ghinks@yahoo.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-regenerator": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-typescript": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.24",
+    "@typescript-eslint/eslint-plugin": "^1.3.0",
+    "@typescript-eslint/parser": "^1.3.0",
+    "babel-plugin-rewire": "^1.2.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.13.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.3.0",
+    "prettier": "^1.16.4",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "@babel/runtime": "^7.3.1"
+  },
+  "babel": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "10.0.0"
+          }
+        }
+      ],
+      "@babel/preset-typescript"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime",
+      "rewire"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-runtime",
+          "rewire"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.json",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "@typescript-eslint/indent": [
+        "error",
+        2
+      ]
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended"
+    ]
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "src/**/*.spec.ts"
+    ],
+    "report": [
+      "json",
+      "lcov",
+      "html",
+      "text"
+    ]
+  }
+}

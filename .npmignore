@@ -1,0 +1,7 @@
+.nyc_output
+coverage
+definitions
+src
+tslint.json
+tsconfig.json
+.idea
