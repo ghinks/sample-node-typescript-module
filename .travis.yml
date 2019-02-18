@@ -1,24 +1,18 @@
 language: node_js
 os:
+  - windows
   - linux
   - osx
-  - windows
+
 node_js:
   - "10.14"
   - "11.10"
   - "node"
-before_install:
-  - nvm install-latest-npm
+
 install:
   - npm install
 script:
   - npm run lint
   - npm run test
-  - if [ -n "${COVER}" ]; then npm run cover ; fi
-matrix:
-  include:
-    - node_js: 10.14
-      env: COVER=true
-    - node_js: 11.10
-    - node_js: node
+
 
