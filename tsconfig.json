@@ -6,7 +6,6 @@
     "esModuleInterop": true,
     "noEmit": true
   },
-  "sourceMap": true,
   "include": [
     "src/**/*"
   ],
