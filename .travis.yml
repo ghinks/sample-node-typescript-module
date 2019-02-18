@@ -15,7 +15,7 @@ script:
   # test for mocha
   - npm run test
   # test for jest
-  - nmp run test:jest
+  - npm run test:jest
   - npm run build
 
 
