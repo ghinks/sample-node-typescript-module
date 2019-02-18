@@ -7,7 +7,7 @@
     "clean": "rm -rf dist",
     "build": "babel ./src  --out-dir dist --extensions \".ts\" --ignore \"src/**/*.spec.ts\"",
     "postbuild": "cp ./definitions/module.d.ts ./dist/index.d.ts",
-    "test": "NODE_ENV=test nyc mocha -r src/register src/**/*.spec.ts",
+    "test": "NODE_ENV=test nyc mocha -r \"src/register\" \"src/**/*.spec.ts\"",
     "cover": "NODE_ENV=test nyc --reporter=html mocha -r src/register src/**/*.spec.ts ",
     "lint": "eslint \"src/**/*.ts\"",
     "pretty": "prettier --write src/**/*.ts"
