@@ -12,7 +12,10 @@ install:
   - npm install
 script:
   - npm run lint
+  # test for mocha
   - npm run test
+  # test for jest
+  - nmp run test:jest
   - npm run build
 
 
