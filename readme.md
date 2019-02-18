@@ -35,3 +35,10 @@ I think this is the way the community is going.
 I wanted this so that when built as a module you could see the imported types in the vscode editor by 
 hovering over the import statement.
 
+## windows
+I have done my best to make sure this works on
+- osx
+- linux
+- windows
+
+[travis](https://travis-ci.com/ghinks/sample-node-typescript-module)
