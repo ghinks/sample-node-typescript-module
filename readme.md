@@ -14,3 +14,24 @@ for publishing.
 - definition file, create a definition file that can be used when this module is published
 - publishing checks, add .npmignore
 
+## Decisions made
+
+### mocha rather than jest
+After having looked long and hard at jest I feel that the ability to do snapshots is not a good
+idea and leads to a lack of understanding about the test result. Jest is terrific but all the test
+frameworks do a good job.
+
+### Building with **@babel/preset-typescript** rather than tsc
+Well under the covers it is the same thing, but for testing the babel plugin [rewire](https://www.npmjs.com/package/babel-plugin-rewire) is 
+really useful.
+
+### nyc code coverage
+Well jest uses istanbul under the covers so you may as well just use [nyc](https://www.npmjs.com/package/nyc)
+
+### eslint rather than tslint
+I think this is the way the community is going.
+
+### Simple definition file
+I wanted this so that when built as a module you could see the imported types in the vscode editor by 
+hovering over the import statement.
+
