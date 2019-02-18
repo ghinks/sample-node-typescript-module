@@ -1,9 +1,12 @@
 language: node_js
 os:
   - linux
+  - osx
+  - windows
 node_js:
   - "10.14"
   - "11.10"
+  - "node"
 before_install:
   - nvm install-latest-npm
 install:
@@ -17,4 +20,5 @@ matrix:
     - node_js: 10.14
       env: COVER=true
     - node_js: 11.10
+    - node_js: node
 
