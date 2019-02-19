@@ -9,6 +9,7 @@
     "postbuild": "tsc --emitDeclarationOnly --outDir definitions && cp definitions/index.d.ts dist/",
     "test": "cross-env NODE_ENV=test nyc mocha -r \"src/register\" \"src/**/*.spec.ts\"",
     "test:jest": "cross-env NODE_ENV=test jest",
+    "test:watch-mocha": "NODE_ENV=test mocha --watch -r src/register src/**/*.spec.ts --watch-extensions ts",
     "cover": "NODE_ENV=test nyc --reporter=html mocha -r src/register src/**/*.spec.ts ",
     "lint": "eslint \"src/**/*.ts\"",
     "pretty": "prettier --write src/**/*.ts"
@@ -36,7 +37,7 @@
     "cross-env": "^5.2.0",
     "eslint": "^5.13.0",
     "jest": "^24.1.0",
-    "mocha": "^5.2.0",
+    "mocha": "^6.0.0",
     "nyc": "^13.3.0",
     "prettier": "^1.16.4",
     "rimraf": "^2.6.3",
@@ -116,7 +117,9 @@
   "jest": {
     "verbose": true,
     "collectCoverage": true,
-    "testMatch": ["**/**/*.test.ts"],
+    "testMatch": [
+      "**/**/*.test.ts"
+    ],
     "testEnvironment": "node"
   }
 }
