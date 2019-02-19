@@ -4,9 +4,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "noEmit": true
+    "declaration": true
   },
-  "sourceMap": true,
   "include": [
     "src/**/*"
   ],
