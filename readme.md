@@ -68,7 +68,7 @@ would need nyc/istanbul.
 | jest           | *.test.ts      |
 
 #### visual studio code setup for mocha and jest
-I am a firm believer in chose. If you use webstorm the debugging just works. For vscode here are my launch.json
+I am a firm believer in choice. If you use webstorm the debugging just works. For vscode here are my launch.json
 settings
 
 ```
