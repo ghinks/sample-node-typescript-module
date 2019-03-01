@@ -75,3 +75,4 @@ typings/
 .serverless
 dist
 definitions
+/.vscode/launch.json

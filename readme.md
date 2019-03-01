@@ -67,6 +67,54 @@ would need nyc/istanbul.
 | mocha          | *.spec.ts      |
 | jest           | *.test.ts      |
 
+#### visual studio code setup for mocha and jest
+I am a firm believer in chose. If you use webstorm the debugging just works. For vscode here are my launch.json
+settings
+
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+        "name": "Debug Jest Tests",
+        "type": "node",
+        "request": "launch",
+        "runtimeArgs": [
+          "--inspect-brk",
+          "${workspaceRoot}/node_modules/.bin/jest",
+          "--runInBand"
+        ],
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "port": 9229
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Mocha Tests",
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "args": [
+                "-r",
+                "./src/register.js",
+                "--colors",
+                "${workspaceFolder}/src/**/*.spec.ts"
+            ],
+            "env": {
+                "NODE_ENV": "test"
+              },
+            "internalConsoleOptions": "openOnSessionStart",
+            "runtimeArgs": [
+        
+            ]
+        }
+    ]
+}
+
+```
+
 #### nyc code coverage
 Well jest uses istanbul under the covers so you may as well just use [nyc](https://www.npmjs.com/package/nyc)
 You can delete this and the mocha dependencies too if you go for jest.
