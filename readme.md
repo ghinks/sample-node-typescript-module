@@ -1,5 +1,7 @@
 # sample-node-typescript-module
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ghinks/sample-node-typescript-module.svg)](https://greenkeeper.io/)
+
 ## Description
 Every day now we hear that [more people](http://slides.com/seldo/npm-future-of-javascript-qcon#/72) are using typescript.
 Some of us grew up with types and some of us never knew types. I'm not going to argue the toss. But we can choose either
